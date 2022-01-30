@@ -1,0 +1,28 @@
+.contact{
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    align-items: center;
+    color: #FFF;
+}
+
+.contact-content{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.contact h4{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+@media (max-width: 800px) {
+    .contact-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

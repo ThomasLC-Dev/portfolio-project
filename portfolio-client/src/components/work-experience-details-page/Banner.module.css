@@ -1,0 +1,32 @@
+.banner{
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+}
+
+.banner h1{
+    text-transform: uppercase;
+    font-size: 4.5em;
+    font-weight: 700;
+}
+
+.date{
+    display: inline-block;
+    margin: 15px 0;
+    background: #414141;
+    font-size: 0.9em;
+    padding: 8px 10px;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.date img{
+    width: 25px;
+    margin-bottom: -5px;
+    margin-right: 5px;
+}

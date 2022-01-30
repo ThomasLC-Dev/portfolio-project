@@ -1,0 +1,100 @@
+.project-details{
+    display: flex;
+}
+
+.slider{
+    height: 40%;
+}
+
+.infos{
+    height: 60%;
+    display: flex;
+    background-color: #363636;
+    color: #FFFFFF;
+}
+
+.infos .left{
+    flex: 7;
+    margin: 40px 30px;
+}
+
+.description{
+    line-height: 25px;
+}
+
+.infos .right{
+    position: relative;
+    flex: 3;
+    height: 340px;
+    margin: 30px 0;
+    border-left: 1px solid #cccccc;
+    padding: 10px 15px;
+}
+
+.infos .right .languages{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.infos .right .languages img{
+    width: 45px;
+}
+
+.infos .right .company{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.github-btn{
+    text-align: center;
+    position: absolute;
+    width: 80%;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #161b22;
+    color: #FFFFFF;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+
+.github-btn:hover{
+    background: #38a4ac;
+    transition: 0.4s all ease;
+}
+
+.website-btn{
+    text-align: center;
+    position: absolute;
+    display: block;
+    width: 80%;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #004146;
+    color: #FFFFFF;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+
+.website-btn:hover{
+    background: #38a4ac;
+    transition: 0.4s all ease;
+}

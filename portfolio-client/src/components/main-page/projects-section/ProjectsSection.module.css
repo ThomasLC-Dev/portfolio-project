@@ -1,0 +1,35 @@
+.projects{
+    display: flex;
+    flex-direction: column;
+    background: #ececec;
+    color: #000;
+}
+
+.projects-list{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    justify-items: center;
+}
+
+@media (max-width: 1530px) {
+    section{
+        padding: 20px 0px 60px;
+    }
+    
+    .projects-list{
+        grid-template-columns: 30% 30% 30%;
+    }
+}
+
+@media (max-width: 1150px) {
+    .projects-list{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (max-width: 700px) {
+    .projects-list{
+        grid-template-columns: 100%;
+    }
+}

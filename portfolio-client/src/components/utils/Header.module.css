@@ -1,0 +1,141 @@
+header{
+    position: fixed;
+    width: 100vw;
+    padding: 20px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo{
+    color: #fff;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+header .menu-icon{
+    display: none;
+}
+
+header .menu{
+    position: relative;
+    display: flex;
+}
+
+header .menu li{
+    position: relative;
+    list-style: none;
+}
+
+header .menu li a{
+    position: relative;
+    display: inline-block;
+    margin: 0 25px;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+header .menu li a:hover{
+    color: #38a4ac;
+}
+
+header.sticky{
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+}
+
+header.sticky .logo, header.sticky li a{
+    color: #111;
+    transition: 0.4s;
+}
+
+@media screen and (max-width: 1350px){
+    body{
+        overflow: visible;
+    }
+
+    body.hidden{
+        overflow: hidden;
+    }
+
+    header{
+        padding: 20px 30px;
+    }
+
+    header .menu-icon{
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+    }
+
+    header .menu-icon .line{
+        width: 30px;
+        height: 3px;
+        background: #fff;
+        margin: 5px;
+        transition: transform 0.5s;
+    }
+
+    .line.open:nth-child(1){
+        transform: rotate(45deg) translate(5.5px, 5px);
+        transition: all 0.5s;
+    }
+
+    .line.open:nth-child(2){
+        transform: rotate(-45deg);
+        transition: all 0.5s;
+    }
+
+    .line.open:nth-child(3){
+        visibility: hidden;
+    }
+
+    header.sticky .menu-icon .line{
+        background: #111;
+        transition: transform 0.5s;
+    }
+
+    header.sticky .menu-icon .line.open{
+        background: #fff;
+    }
+
+    header.sticky .logo{
+        color: #111;
+        transition: 0.4s;
+    }
+
+    header.sticky li a{
+        color: #fff;
+    }
+
+    header .menu{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+        visibility: hidden;
+        transition: all 0.4s;
+        opacity: 0;
+    }
+
+    header .menu li a{
+        margin: 30px 0;
+        font-size: 30px;
+    }
+
+    header .menu.open{
+        visibility: visible;
+        transition: all 0.4s;
+        opacity: 1;
+    }
+}

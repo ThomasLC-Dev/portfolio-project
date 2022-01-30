@@ -1,0 +1,40 @@
+.contact-info{
+    width: 40%;
+}
+
+.contact-info .item{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info .item .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.contact-info .item a{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.contact-info .item h5{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contact-info .item img{
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 800px) {
+    .contact-info{
+        width: 90%;
+    }
+}

@@ -1,0 +1,9 @@
+.skill{
+    margin: 0 0 60px;
+    padding: 50px;
+    border-radius: 50%;
+}
+
+.skill img{
+    width: 100px;
+}

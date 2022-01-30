@@ -1,0 +1,29 @@
+.aboutme{
+    background: #ececec;
+    color: #111;
+}
+
+.section-content-box{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.section-content-img{
+    padding-top: 60px;
+    height: 550px;
+}
+
+@media screen and (max-width: 980px){
+    .aboutme .section-content-box{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutme .section-content-img{
+        height: 400px;
+        align-self: center;
+        margin: 20px 0;
+        padding: 0;
+    }
+}

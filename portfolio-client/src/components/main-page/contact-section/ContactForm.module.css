@@ -1,0 +1,38 @@
+.contact-form{
+    width: 60%;
+}
+
+.contact-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form form input, .contact-form form textarea{
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: #222;
+    color: #fff;
+    resize: none;
+}
+
+.contact-form form input[type="submit"]{
+    width: 130px;
+    background: #38a4ac;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-form form textarea{
+    height: 200px;
+}
+
+@media (max-width: 800px) {
+    .contact-form{
+        margin-top: 50px;
+        width: 90%;
+    }
+}

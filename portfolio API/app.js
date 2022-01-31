@@ -11,7 +11,7 @@ import skillsRoutes from "./routes/skillsRoutes.js";
 //App Config
 dotenv.config();
 const app = express();
-const port = process.env.port || 8002;
+const port = process.env.PORT || 8002;
 
 //Multer Config
 const fileStorage = multer.diskStorage({

@@ -20,10 +20,6 @@ export const createProject = async (req, res) => {
         project.images = req.files.images.map(image => image.key);
     }
 
-    console.log(req);
-
-    // project.save();
-
     res.status(201).json({
         result: "Project created !",
     });

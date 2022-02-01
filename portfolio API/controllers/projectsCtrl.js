@@ -16,11 +16,13 @@ export const createProject = async (req, res) => {
     const project = new Project(req.body);
 
     if(req.files.thumbnail && req.files.images){
-        project.thumbnail = req.files.thumbnail[0].filename;
-        project.images = req.files.images.map(image => image.filename);
+        project.thumbnail = req.files.thumbnail[0].key;
+        project.images = req.files.images.map(image => image.key);
     }
 
-    project.save();
+    console.log(req);
+
+    // project.save();
 
     res.status(201).json({
         result: "Project created !",
@@ -29,8 +31,8 @@ export const createProject = async (req, res) => {
 
 export const editProject = async (req, res) => {
     if(req.files.thumbnail && req.files.images){
-        const thumbnail = req.files.thumbnail[0].filename;
-        const images = req.files.images.map(image => image.filename);
+        const thumbnail = req.files.thumbnail[0].key;
+        const images = req.files.images.map(image => image.key);
         req.body.thumbnail = thumbnail;
         req.body.images = images;
     }

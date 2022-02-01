@@ -3,6 +3,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import multer from "multer";
+import multerS3 from "multer-s3";
+import aws from "aws-sdk";
 
 import workExperiencesRoutes from "./routes/workExperiencesRoutes.js";
 import projectsRoutes from "./routes/projectsRoutes.js";
@@ -13,20 +15,32 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8002;
 
-//Multer Config
-const fileStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "uploads/images");
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + " - " + file.originalname);
-    }
+//AWS S3 Config
+const bucketName = process.env.AWS_BUCKET_NAME;
+const region = process.env.AWS_BUCKET_REGION;
+const accessKey = process.env.AWS_ACCESS_KEY;
+const secretKey = process.env.AWS_SECRET_KEY;
+
+const s3 = new aws.S3({
+    region: region,
+    accessKeyId: accessKey,
+    secretAccessKey: secretKey
 });
 
-const upload = multer({storage: fileStorage});
+const upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: bucketName,
+        metadata: function(req, file, cb){
+            cb(null, {fieldName: file.fieldname});
+        },
+        key: function(req, file, cb){
+            cb(null, Date.now() + " - " + file.originalname);
+        }
+    })
+});
 
 //Middlewares
-app.use(express.static('uploads'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());

@@ -16,7 +16,7 @@ export const createSkill = async (req, res) => {
     const skill = new Skill(req.body);
 
     if(req.file){
-        skill.image = req.file.key;
+        skill.image = req.file.location;
     }
 
     skill.save();
@@ -28,7 +28,7 @@ export const createSkill = async (req, res) => {
 
 export const editSkill = async (req, res) => {
     if(req.file){
-        const image = req.file.key;
+        const image = req.file.location;
         req.body.image = image;
     }
 

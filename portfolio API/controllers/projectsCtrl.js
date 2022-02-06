@@ -15,9 +15,10 @@ export const getProject = async (req, res) => {
 export const createProject = async (req, res) => {
     const project = new Project(req.body);
 
-    if(req.files.thumbnail && req.files.images){
+    if(req.files.thumbnail && req.files.languages && req.files.images){
         project.thumbnail = req.files.thumbnail[0].location;
-        project.images = req.files.images.map(image => image.location);
+        project.languages = req.files.languages.map(image => image.location);
+        project.images = req.files.images.map((image) => image.location);
     }
 
     project.save();
@@ -28,10 +29,12 @@ export const createProject = async (req, res) => {
 }
 
 export const editProject = async (req, res) => {
-    if(req.files.thumbnail && req.files.images){
+    if(req.files.thumbnail && req.files.languages && req.files.images){
         const thumbnail = req.files.thumbnail[0].location;
-        const images = req.files.images.map(image => image.location);
+        const languages = req.files.languages.map(image => image.location);
+        const images = req.files.images.map((image) => image.location);
         req.body.thumbnail = thumbnail;
+        req.body.languages = languages;
         req.body.images = images;
     }
     await Project.findOneAndUpdate(req.params.projectId, req.body);

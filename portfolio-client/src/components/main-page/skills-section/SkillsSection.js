@@ -14,9 +14,6 @@ const SkillsSection = () => {
         });
     },[]);
 
-    console.log(skills);
-
-
     const skillsList = skills.map(skill => <Skill key={skill._id} skill={skill} />)
 
     return(

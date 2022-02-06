@@ -30,6 +30,8 @@ const ProjectSection = () => {
         setProject();
     }
 
+    console.log(projects);
+
     const projectsList = projects.map(project => <Project onShowProjectDetails={showProjectDetails} key={project._id} project={project} />)
 
     return(

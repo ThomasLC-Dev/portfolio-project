@@ -1,5 +1,3 @@
-import {NavLink} from 'react-router-dom';
-
 import cityIcon from '../../../assets/icons/ic_city.png';
 import dateIcon from '../../../assets/icons/ic_date.png';
 import personIcon from '../../../assets/icons/ic_person.png';
@@ -8,7 +6,7 @@ import styles from './WorkExperience.module.css';
 
 const WorkExperience = props => {
     return(
-        <NavLink to={`/work-experience/${props.workExperience.id}`} className={styles["work-experience"]}>
+        <div className={styles["work-experience"]}>
             <div className={styles.header}>
                 <div className={styles.left}>
                     <span className={styles.company}>{props.workExperience.company}</span>
@@ -22,7 +20,7 @@ const WorkExperience = props => {
             <ul className={styles.tasks}>
                 {props.workExperience.tasks.map(task => (task.subtasks === undefined) ? <li>{task.name}</li> : <li>{task.name} : <ul>{task.subtasks.map(subtask => <li>{subtask}</li>)}</ul></li>)}
             </ul>
-        </NavLink>
+        </div>
     );
 };
 

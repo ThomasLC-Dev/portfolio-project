@@ -1,61 +1,23 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Skill from './Skill';
 
 import styles from './SkillsSection.module.css';
 
-const SKILLS_LIST = [
-    {
-        id: 0,
-        name: 'html',
-        percentage: 90,
-        color: '#E34F26'
-    },
-    {
-        id: 1,
-        name: 'css',
-        percentage: 80,
-        color: '#2196F3'
-    },
-    {
-        id: 2,
-        name: 'php',
-        percentage: 75,
-        color: '#777BB3'
-    },
-    {
-        id: 3,
-        name: 'database',
-        percentage: 50,
-        color: '#525762'
-    },
-    {
-        id: 4,
-        name: 'java',
-        percentage: 90,
-        color: '#D28017'
-    },
-    {
-        id: 5,
-        name: 'javascript',
-        percentage: 80,
-        color: '#F7DF1E'
-    },
-    {
-        id: 6,
-        name: 'react',
-        percentage: 75,
-        color: '#61D9FA'
-    },
-    {
-        id: 7,
-        name: 'nodejs',
-        percentage: 50,
-        color: '#6ABD49'
-    },
-];
-
 const SkillsSection = () => {
 
-    const skillsList = SKILLS_LIST.map(skill => <Skill id={skill.id} skill={skill} />)
+    const [skills, setSkills] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://portfolio-tlc-dev.herokuapp.com/skills/').then(response => {
+            setSkills(response.data);
+        });
+    },[]);
+
+    console.log(skills);
+
+
+    const skillsList = skills.map(skill => <Skill key={skill._id} skill={skill} />)
 
     return(
         <section className={styles.skills} id="skills">

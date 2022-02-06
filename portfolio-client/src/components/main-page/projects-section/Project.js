@@ -3,7 +3,7 @@ import styles from './Project.module.css';
 const Project = props => {
 
     const clickMoreButtonHandler = () => {
-        props.onShowProjectDetails(props.id);
+        props.onShowProjectDetails(props.project._id);
     }
 
     return(
@@ -12,7 +12,7 @@ const Project = props => {
             </div>
             <div className={styles.infos}>
                 <div className={styles.languages}>
-                    {props.project.languages.map(language => <img src={`/icons/${language}.png`} alt="icon language" />)}
+                    {props.project.languages.map(language => <img src={language} alt="icon language" />)}
                 </div>
                 <p className={styles.description}>
                     {props.project.description}

@@ -1,16 +1,21 @@
-import { useContext } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import WorkExperience from './WorkExperience';
-
-import GlobalContext from '../../../store/global-context';
 
 import styles from './WorkExperiencesSection.module.css';
 
 const WorkExperiencesSection = () => {
 
-    const ctx = useContext(GlobalContext);
+    const [workExperiences, setWorkExperiences] = useState([]);
 
-    const workExperiencesList = ctx.workExperiencesList.map(we => <WorkExperience id={we.id} workExperience={we} />)
+    useEffect(() => {
+        axios.get('https://portfolio-tlc-dev.herokuapp.com/work-experiences/').then(response => {
+            setWorkExperiences(response.data);
+        });
+    },[]);
+    
+    const workExperiencesList = workExperiences.map(we => <WorkExperience key={we._id} workExperience={we} />)
 
     return(
         <section className={styles.workexperiences} id="workexperiences">

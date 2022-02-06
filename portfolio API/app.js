@@ -53,7 +53,7 @@ mongoose.connect(process.env.DB_URI, {
 
 //Routes
 app.use('/work-experiences', workExperiencesRoutes);
-app.use('/projects', upload.fields([{name: "thumbnail", maxCount: 1}, {name: "images"}]), projectsRoutes);
+app.use('/projects', upload.fields([{name: "thumbnail", maxCount: 1}, {name: "languages"}, {name: "images"}]), projectsRoutes);
 app.use("/skills", upload.single('image'), skillsRoutes);
 
 //Listener

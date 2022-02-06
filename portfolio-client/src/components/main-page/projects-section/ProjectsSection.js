@@ -1,35 +1,40 @@
-import { useContext, useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Project from './Project';
 import ProjectDetails from './ProjectDetails';
-
-import GlobalContext from '../../../store/global-context';
 
 import styles from './ProjectsSection.module.css';
 
 const ProjectSection = () => {
 
     const [projectDetailsIsShown, setProjectDetailsIsShown] = useState(false);
-    const [projectDetailsId, setProjectDetailsId] = useState(-1);
+    const [project, setProject] = useState();
+    const [projects, setProjects] = useState([]);
 
-    const ctx = useContext(GlobalContext);
+    useEffect(() => {
+        axios.get('https://portfolio-tlc-dev.herokuapp.com/projects/').then(response => {
+            setProjects(response.data);
+        });
+    },[]);
 
     const showProjectDetails = (id) => {
-        setProjectDetailsIsShown(true);
-        setProjectDetailsId(id);
-        console.log("test");
+        axios.get('https://portfolio-tlc-dev.herokuapp.com/projects/'+id).then(response => {
+            setProject(response.data);
+            setProjectDetailsIsShown(true);
+        });
     }
 
     const hideProjectDetails = () => {
         setProjectDetailsIsShown(false);
-        setProjectDetailsId(-1);
+        setProject();
     }
 
-    const projectsList = ctx.projectsList.map(project => <Project onShowProjectDetails={showProjectDetails} id={project.id} project={project} />)
+    const projectsList = projects.map(project => <Project onShowProjectDetails={showProjectDetails} key={project._id} project={project} />)
 
     return(
         <section className={styles.projects} id="projects">
-            {projectDetailsIsShown && <ProjectDetails projectId={projectDetailsId} onClose={hideProjectDetails} />}
+            {projectDetailsIsShown && <ProjectDetails project={project} onClose={hideProjectDetails} />}
             <h3 className="section-title">Mes projets</h3>
 
             <div className={styles["projects-list"]}>

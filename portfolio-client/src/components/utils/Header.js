@@ -26,7 +26,6 @@ const Header = () => {
                     <li><a href="/#workexperiences" onClick={toggleMenu}>Expériences</a></li>
                     <li><a href="/#projects" onClick={toggleMenu}>Projets</a></li>
                     <li><a href="/#skills" onClick={toggleMenu}>Compétences</a></li>
-                    <li><a href="/#news" onClick={toggleMenu}>Veille technologique</a></li>
                     <li><a href="/#contact" onClick={toggleMenu}>Contact</a></li>
                 </ul>
             </nav>

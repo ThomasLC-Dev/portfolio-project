@@ -1,9 +1,9 @@
 .contact{
     display: flex;
     flex-direction: column;
-    background: #111;
+    background: #ececec;
     align-items: center;
-    color: #FFF;
+    color: #111;
 }
 
 .contact-content{
@@ -16,7 +16,7 @@
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #fff;
+    color: #111;
 }
 
 @media (max-width: 800px) {
